@@ -22,7 +22,7 @@ class App extends React.Component {
 
   saveFile = () => {
     console.log('called');
-    axios.post('/evaluate', this.state.data).then((response) => {
+    axios.post('/upload', this.state.data).then((response) => {
       console.log(response);
     });
   }
