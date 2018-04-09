@@ -27,11 +27,22 @@ class App extends React.Component {
     });
   }
 
+  predict = () => {
+    axios.get('/predict').then((predictedValue) => {
+      this.setState({
+        ...this.state,
+        predictedValue: predictedValue.data,
+      });
+    });
+  }
+
   render() {
     return (
       <div className="App-main">
         <input type="file" onChange={this.fileInput} />
         <button onClick={() => this.saveFile()}>Upload</button>
+        <button onClick={() => this.predict()}>Predict</button>
+        {this.state.predictedValue}
       </div>
     );
   }
